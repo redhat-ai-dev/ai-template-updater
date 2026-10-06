@@ -129,7 +129,7 @@ All four are pinned to `model: claude-sonnet-5[1m]` (see §10).
 
 **PR footer (mandatory):** every PR opened by `impl-template` / `impl-devimages`
 must end its body with a two-line footer — the `agentic-template-ops` tool link
-(`https://github.com/JslYoon/ai-template-updater`) and the Jira ticket link
+(`https://github.com/redhat-ai-dev/ai-template-updater`) and the Jira ticket link
 (`https://issues.redhat.com/browse/<JIRA_TICKET>`). `promote.js` reads
 `JIRA_TICKET` from `.env` and passes it into both PR prompts (`PR_FOOTER`); it
 warns if the var is unset. Keep the tool link even when no ticket is set.

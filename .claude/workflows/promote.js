@@ -105,7 +105,7 @@ if (!config || !config.rows || config.rows.length === 0) {
 log(`${config.rows.length} updates to promote. Deduplicating...`)
 
 // Every promote PR body MUST end with this footer: tool provenance + Jira.
-const TOOL_URL = 'https://github.com/JslYoon/ai-template-updater'
+const TOOL_URL = 'https://github.com/redhat-ai-dev/ai-template-updater'
 const jiraLine = config.jira_ticket
   ? `Jira: [${config.jira_ticket}](https://issues.redhat.com/browse/${config.jira_ticket})`
   : 'Jira: (none set — add JIRA_TICKET to .env)'

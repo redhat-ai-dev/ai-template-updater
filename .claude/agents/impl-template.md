@@ -126,7 +126,7 @@ Changes:
 Images verified on personal quay and tested on ROSA cluster.
 
 ---
-Tooling: [agentic-template-ops](https://github.com/JslYoon/ai-template-updater) (Phase 5)
+Tooling: [agentic-template-ops](https://github.com/redhat-ai-dev/ai-template-updater) (Phase 5)
 Jira: [{JIRA_TICKET}](https://issues.redhat.com/browse/{JIRA_TICKET})
 ```
 
