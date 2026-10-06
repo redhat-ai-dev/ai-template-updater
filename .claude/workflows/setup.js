@@ -131,7 +131,7 @@ const env = await agent(
 4. Verify agentic-template-ops is installed: agentic-template-ops --help
 
 Return the extracted values as structured output.`,
-  { label: 'pre-flight', model: 'claude-sonnet-4.6', schema: ENV_SCHEMA }
+  { label: 'pre-flight', model: 'claude-sonnet-5[1m]', schema: ENV_SCHEMA }
 )
 
 if (!env) {
@@ -148,7 +148,7 @@ If it returns a username, auth is good — return authenticated: true.
 If it fails or says "not logged in", return authenticated: false.`,
   {
     label: 'check-quay-auth',
-    model: 'claude-sonnet-4.6',
+    model: 'claude-sonnet-5[1m]',
     schema: {
       type: 'object',
       properties: { authenticated: { type: 'boolean' } },
@@ -182,7 +182,7 @@ const audit = await agent(
 4. Return updates_found count (number of item rows) and the item rows.
 
 If no updates found, return updates_found: 0 and empty rows array.`,
-  { label: 'investigate', model: 'claude-sonnet-4.6', schema: AUDIT_SCHEMA }
+  { label: 'investigate', model: 'claude-sonnet-5[1m]', schema: AUDIT_SCHEMA }
 )
 
 if (!audit || audit.updates_found === 0) {
@@ -318,14 +318,14 @@ const RECORD_SCHEMA = {
 }
 
 let recorded = await agent(recordPrompt, {
-  label: 'record-builds', phase: 'Record', model: 'claude-sonnet-4.6', schema: RECORD_SCHEMA,
+  label: 'record-builds', phase: 'Record', model: 'claude-sonnet-5[1m]', schema: RECORD_SCHEMA,
 })
 
 // One workflow-level retry on top of the agent's own internal retries.
 if (!recorded || !recorded.built || recorded.built.length === 0) {
   log('Record came back empty — retrying the Sheet round-trip once...')
   recorded = await agent(recordPrompt, {
-    label: 'record-builds-retry', phase: 'Record', model: 'claude-sonnet-4.6', schema: RECORD_SCHEMA,
+    label: 'record-builds-retry', phase: 'Record', model: 'claude-sonnet-5[1m]', schema: RECORD_SCHEMA,
   })
 }
 

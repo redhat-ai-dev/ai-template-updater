@@ -243,7 +243,9 @@ agentic-template-ops run             # Full pipeline
 ```
 
 `record-builds` and `list-built` are the Sheet-as-source-of-truth primitives the
-workflows use between Build and Stage. Add `--dry-run` to preview without side effects.
+workflows use between Build and Stage. The `investigate`, `setup`, `promote`, and
+`run` commands accept `--dry-run` to preview without side effects (`record-builds`
+and `list-built` have no `--dry-run` flag).
 
 ## Architecture
 
@@ -261,7 +263,7 @@ This tool uses Claude Code's [dynamic workflows](https://docs.anthropic.com/en/d
 
 | Component | Model | Why |
 |-----------|-------|-----|
-| Workflow orchestrator | Inherited from session (Opus/Sonnet) | Controls flow, spawns agents |
+| Workflow orchestrator | Opus (`settings.json` `model: opus`) | Controls flow, spawns agents |
 | `impl-builder` | `claude-sonnet-5[1m]` | Fast, cheap. Mechanical: copy dir, edit version, podman build |
 | `impl-template` | `claude-sonnet-5[1m]` | Edits env files, runs generation scripts |
 | `impl-devimages` | `claude-sonnet-5[1m]` | Git operations, PR creation |

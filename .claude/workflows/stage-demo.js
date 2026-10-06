@@ -70,7 +70,7 @@ const env = await agent(
    - FORK_OWNER
    - ROLLING_DEMO_GITOPS_PATH (optional — empty string if unset)
 Return the extracted values as structured output.`,
-  { label: 'pre-flight', model: 'claude-sonnet-5', schema: ENV_SCHEMA }
+  { label: 'pre-flight', model: 'claude-sonnet-5[1m]', schema: ENV_SCHEMA }
 )
 
 if (!env) {
